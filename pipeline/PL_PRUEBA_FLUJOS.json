@@ -1,0 +1,87 @@
+{
+	"name": "PL_PRUEBA_FLUJOS",
+	"properties": {
+		"description": "Pipeline generado para ejemplos de flujos.",
+		"activities": [
+			{
+				"name": "InicioProceso",
+				"description": "Marca el inicio de ejecucion",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "FechaIni",
+					"value": "utcnow()"
+				}
+			},
+			{
+				"name": "ObtieneMensaje",
+				"description": "Primer Proceso",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "InicioProceso",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Mensaje",
+					"value": "Estoy en Segundo proceso"
+				}
+			},
+			{
+				"name": "EstableceMensaje",
+				"description": "Cuando Ocurre exito",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ObtieneMensaje",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": []
+			},
+			{
+				"name": "EstableceMensajeErr",
+				"description": "CuandoOcurreError",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ObtieneMensaje",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Mensaje",
+					"value": "error\n"
+				}
+			}
+		],
+		"variables": {
+			"FechaIni": {
+				"type": "String",
+				"defaultValue": "utcnow()"
+			},
+			"Mensaje": {
+				"type": "String",
+				"defaultValue": "EstadoEjecucion"
+			},
+			"EstadoProceso": {
+				"type": "Boolean",
+				"defaultValue": true
+			}
+		},
+		"folder": {
+			"name": "CLASE01"
+		},
+		"annotations": []
+	}
+}
