@@ -2,6 +2,15 @@
 	"name": "PL_PRUEBA_FLUJOS",
 	"properties": {
 		"description": "Pipeline generado para ejemplos de flujos.",
+		"activities": [
+			{
+				"name": "InicioProceso",
+				"description": "Marca el inicio de ejecucion",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
 		"folder": {
 			"name": "CLASE01"
 		},
