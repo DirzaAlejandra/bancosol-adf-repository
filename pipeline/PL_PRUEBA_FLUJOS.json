@@ -44,7 +44,11 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "EstadoProceso",
+					"value": "ok"
+				}
 			},
 			{
 				"name": "EstableceMensajeErr",
