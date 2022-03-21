@@ -33,7 +33,8 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "EstableceMensaje",
+				"description": "Cuando Ocurre exito",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
@@ -46,7 +47,8 @@
 				"userProperties": []
 			},
 			{
-				"name": "Set variable2",
+				"name": "EstableceMensajeErr",
+				"description": "CuandoOcurreError",
 				"type": "SetVariable",
 				"dependsOn": [
 					{
