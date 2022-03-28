@@ -1,0 +1,25 @@
+{
+	"name": "CSV_Ejemplo_Local",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_maquina_local",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "CLASE02"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "BaseProductosCli.csv"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
