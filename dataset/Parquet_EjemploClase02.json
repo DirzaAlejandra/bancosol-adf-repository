@@ -1,0 +1,24 @@
+{
+	"name": "Parquet_EjemploClase02",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_conn_dta_lake_banco_sol",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "CLASE02"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Ejemplo02Parquet",
+				"folderPath": "Clase02",
+				"fileSystem": "aci-dsalazar"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
