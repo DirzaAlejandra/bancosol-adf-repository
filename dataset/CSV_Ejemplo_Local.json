@@ -20,6 +20,107 @@
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "CERTIFICADO_LBC",
+				"type": "String"
+			},
+			{
+				"name": "NRO_CUENTA",
+				"type": "String"
+			},
+			{
+				"name": "FECHA_INICIO_VIGENCIA",
+				"type": "String"
+			},
+			{
+				"name": "FECHA_FIN_VIGENCIA",
+				"type": "String"
+			},
+			{
+				"name": "COD_PRODUCTO",
+				"type": "String"
+			},
+			{
+				"name": "PRODUCTO",
+				"type": "String"
+			},
+			{
+				"name": "PRIMA",
+				"type": "String"
+			},
+			{
+				"name": "FECHA_REGISTRO",
+				"type": "String"
+			},
+			{
+				"name": "TRANSACCION",
+				"type": "String"
+			},
+			{
+				"name": "FECHA_COBRO",
+				"type": "String"
+			},
+			{
+				"name": "ESTADO_SEGURO_BT",
+				"type": "String"
+			},
+			{
+				"name": "NOMBRE",
+				"type": "String"
+			},
+			{
+				"name": "APELLIDO",
+				"type": "String"
+			},
+			{
+				"name": "APELLIDO_MATERNO",
+				"type": "String"
+			},
+			{
+				"name": "TIPO_DOCUMENTO",
+				"type": "String"
+			},
+			{
+				"name": "NUMERO_DOCUMENTO",
+				"type": "String"
+			},
+			{
+				"name": "COMPLEMENTO_DOCUMENTO",
+				"type": "String"
+			},
+			{
+				"name": "EXPEDICION_DOCUMENTO",
+				"type": "String"
+			},
+			{
+				"name": "PAIS_DOCUMENTO",
+				"type": "String"
+			},
+			{
+				"name": "FECHA_NACIMIENTO",
+				"type": "String"
+			},
+			{
+				"name": "ESTADO_CIVIL",
+				"type": "String"
+			},
+			{
+				"name": "TELEFONO_DOMICILIO",
+				"type": "String"
+			},
+			{
+				"name": "TELEFONO_LABORAL",
+				"type": "String"
+			},
+			{
+				"name": "DIRECCION_DOMICILIO",
+				"type": "String"
+			},
+			{
+				"name": "SEXO",
+				"type": "String"
+			}
+		]
 	}
 }
