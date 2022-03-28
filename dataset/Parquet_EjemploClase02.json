@@ -13,7 +13,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Ejemplo02Parquet",
+				"fileName": "Ejemplo02.Parquet",
 				"folderPath": "Clase02",
 				"fileSystem": "aci-dsalazar"
 			},
