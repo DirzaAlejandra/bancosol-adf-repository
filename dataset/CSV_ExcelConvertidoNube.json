@@ -14,7 +14,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "EjemploClase02.csv",
-				"folderPath": "CLASE2",
+				"folderPath": "Clase02",
 				"fileSystem": "aci-dsalazar"
 			},
 			"columnDelimiter": ";",
