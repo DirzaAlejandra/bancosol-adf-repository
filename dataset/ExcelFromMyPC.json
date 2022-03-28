@@ -5,6 +5,9 @@
 			"referenceName": "ls_maquina_local",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "CLASE02"
+		},
 		"annotations": [],
 		"type": "Excel",
 		"typeProperties": {
