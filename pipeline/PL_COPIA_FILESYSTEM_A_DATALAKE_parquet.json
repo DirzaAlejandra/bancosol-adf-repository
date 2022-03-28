@@ -1,5 +1,5 @@
 {
-	"name": "PL_COPIA_FILESYSTEM_A_DATALAKE_parquer",
+	"name": "PL_COPIA_FILESYSTEM_A_DATALAKE_parquet",
 	"properties": {
 		"activities": [
 			{
