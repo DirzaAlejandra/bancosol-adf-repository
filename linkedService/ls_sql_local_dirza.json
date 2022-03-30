@@ -1,0 +1,17 @@
+{
+	"name": "ls_sql_local_dirza",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "Linked Server Maquina Local",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"connectionString": "integrated security=False;data source=dirzasalaza6d0a;initial catalog=AdventureWorksDS;user id=dirza",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NDI2ZTE4ZS05YzJjLTRmNTItYmRkNC1iNDdmNTY3MDU1MDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "ir-coneccion-dirzapc",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
