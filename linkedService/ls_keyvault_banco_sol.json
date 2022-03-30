@@ -1,0 +1,10 @@
+{
+	"name": "ls_keyvault_banco_sol",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kv-bancosol-training.vault.azure.net/"
+		}
+	}
+}
