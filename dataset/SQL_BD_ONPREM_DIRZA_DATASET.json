@@ -1,0 +1,19 @@
+{
+	"name": "SQL_BD_ONPREM_DIRZA_DATASET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sql_local_dirza",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "CLASE03"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "Person",
+			"table": "Person"
+		}
+	}
+}
