@@ -1,0 +1,68 @@
+{
+	"name": "PL_CARGA_INCREMENTAL",
+	"properties": {
+		"activities": [
+			{
+				"name": "CargaIncremental DAtos Hacia Datalake",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT idFactura+1000 as idFactura,IDCLIENTE,IDEMPLEADO,DATEADD(YEAR,1,FECHAFACTURA) as FECHAFACTURA,SUBTOTAL,IMPUESTOS\nFROM DBO.Factura WHERE YEAR(fechaFactura) =2018",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SQL_LEER",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CSV_LEER",
+						"type": "DatasetReference",
+						"parameters": {
+							"directorio": "FACTURA/2019",
+							"nombreArchivo": "Factura.csv"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "CLASE03"
+		},
+		"annotations": []
+	}
+}
