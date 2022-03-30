@@ -1,0 +1,7 @@
+{
+	"name": "ir-coneccion-dirzapc",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Integration runtime con mi equipo local dirza pc"
+	}
+}
