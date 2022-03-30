@@ -1,0 +1,41 @@
+{
+	"name": "CSV_LEER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_conn_dta_lake_banco_sol",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"directorio": {
+				"type": "string"
+			},
+			"nombreArchivo": {
+				"type": "string"
+			}
+		},
+		"folder": {
+			"name": "CLASE03"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().nombreArchivo",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().directorio",
+					"type": "Expression"
+				},
+				"fileSystem": "aci-dsalazar"
+			},
+			"columnDelimiter": ";",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
