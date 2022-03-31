@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "CargaIncremental DAtos Hacia Datalake",
+				"name": "Carga Stock Tabla hasta Repo",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
