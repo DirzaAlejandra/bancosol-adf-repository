@@ -1,5 +1,5 @@
 {
-	"name": "PL_CARGA_RANGO_FECHAS_INCREM",
+	"name": "PL_CARGA_RANGO_FECHAS_inc",
 	"properties": {
 		"activities": [
 			{
@@ -45,7 +45,72 @@
 						"value": "@array(activity('Generar rango fechas').output.value)",
 						"type": "Expression"
 					},
-					"isSequential": true
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "CargaIncrementalParametrizada",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"sqlReaderQuery": {
+										"value": "@SELECT idFactura,idCliente,idEmpleado,fechaFactura,subtotal,impuestos FROM dbo.Factura WHERE EOMONTH(fechaFactura)=item()",
+										"type": "Expression"
+									},
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SQL_LEER",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "CSV_LEER",
+									"type": "DatasetReference",
+									"parameters": {
+										"directorio": "/Taller/dbo/Factura/",
+										"nombreArchivo": {
+											"value": "@Factura_item().csv",
+											"type": "Expression"
+										}
+									}
+								}
+							]
+						}
+					]
 				}
 			}
 		],
