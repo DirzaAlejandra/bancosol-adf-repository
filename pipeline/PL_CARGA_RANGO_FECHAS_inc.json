@@ -65,6 +65,19 @@
 									}
 								}
 							}
+						},
+						{
+							"name": "PL_CARGA_RANGO_FECHAS_inc",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "PL_CARGA_STOCK",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true
+							}
 						}
 					]
 				}
