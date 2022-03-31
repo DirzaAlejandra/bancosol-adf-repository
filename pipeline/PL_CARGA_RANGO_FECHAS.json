@@ -1,0 +1,37 @@
+{
+	"name": "PL_CARGA_RANGO_FECHAS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Generar rango fechas",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select distinct fechafactura  from dbo.FacturaDi   where fechaFactura=EOMONTH(fechaFactura) ",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SQL_LEER",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"folder": {
+			"name": "LABORATORIO"
+		},
+		"annotations": []
+	}
+}
