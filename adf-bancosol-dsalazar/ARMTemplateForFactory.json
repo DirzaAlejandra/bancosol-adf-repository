@@ -1070,6 +1070,20 @@
 											}
 										}
 									}
+								},
+								{
+									"name": "PL_CARGA_STOCK",
+									"type": "ExecutePipeline",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"pipeline": {
+											"referenceName": "PL_CARGA_STOCK",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true,
+										"parameters": {}
+									}
 								}
 							]
 						}
@@ -1086,7 +1100,41 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/SQL_LEER')]",
-				"[concat(variables('factoryId'), '/pipelines/PL_CARGA_INCREMENTAL')]"
+				"[concat(variables('factoryId'), '/pipelines/PL_CARGA_INCREMENTAL')]",
+				"[concat(variables('factoryId'), '/pipelines/PL_CARGA_STOCK')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SC_PROGRAMACION_NOCTURNA')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "EJECUTARA LA CARGA INCREMENTAL PROGRAMADA",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_CARGA_RANGO_FECHAS_inc",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Day",
+						"interval": 1,
+						"startTime": "2022-03-30T23:00:00",
+						"endTime": "2022-04-01T02:43:00",
+						"timeZone": "SA Western Standard Time",
+						"schedule": {}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_CARGA_RANGO_FECHAS_inc')]"
 			]
 		}
 	]
