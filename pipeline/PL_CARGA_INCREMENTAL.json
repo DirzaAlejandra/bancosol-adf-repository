@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "@SELECT idFactura+1000 as idFactura,IDCLIENTE,IDEMPLEADO,DATEADD(YEAR,1,FECHAFACTURA) as FECHAFACTURA,SUBTOTAL,IMPUESTOS\nFROM DBO.Factura WHERE YEAR(fechaFactura) =pipeline().parameters.FechaCorte",
+							"value": "@SELECT idFactura,idCliente,idEmpleado,fechaFactura,subtotal,impuestos FROM dbo.Factura WHERE EOMONTH(fechaFactura)=pipeline().parameters.FechaCorte",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
