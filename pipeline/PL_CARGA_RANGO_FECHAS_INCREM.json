@@ -1,5 +1,5 @@
 {
-	"name": "PL_CARGA_RANGO_FECHAS",
+	"name": "PL_CARGA_RANGO_FECHAS_INCREM",
 	"properties": {
 		"activities": [
 			{
@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select distinct EOMONTH(fechaFactura) from dbo.Factura where day(fechaFactura)=1\n",
+						"sqlReaderQuery": "select distinct EOMONTH(fechaFactura) from dbo.Factura where day(fechaFactura)=1 order by 1 asc\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -27,8 +27,77 @@
 					},
 					"firstRowOnly": false
 				}
+			},
+			{
+				"name": "Carga Incremental de Datos hacia DataLake",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "pipeline().parameters.fechacorte\nSELECT idFactura,idCliente,idEmpleado\n,fechaFactura,subtotal,impuestos \nFROM dbo.Factura \nWHERE EOMONTH(fechaFactura)=@{pipeline().parameters.fechacorte}",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SQL_LEER",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CSV_LEER",
+						"type": "DatasetReference",
+						"parameters": {
+							"directorio": "/Taller/dbo/Factura/",
+							"nombreArchivo": {
+								"value": "Factura_@{pipeline().parameters.fechacorte}.csv",
+								"type": "Expression"
+							}
+						}
+					}
+				]
 			}
 		],
+		"parameters": {
+			"fechacorte": {
+				"type": "string",
+				"defaultValue": "20210131"
+			}
+		},
 		"folder": {
 			"name": "LABORATORIO"
 		},
