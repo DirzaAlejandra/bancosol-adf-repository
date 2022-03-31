@@ -42,7 +42,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@array(activity('Generar rango fechas').output.value[1])",
+						"value": "@array(activity('Generar rango fechas').output.value)",
 						"type": "Expression"
 					},
 					"isSequential": true,
