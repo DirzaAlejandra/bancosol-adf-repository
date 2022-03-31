@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT idFactura,idCliente,idEmpleado,fechaFactura,subtotal,impuestos \nROM dbo.Factura \nWHERE EOMONTH(fechaFactura)=@{formatDateTime(pipeline().parameters.FechaCorte, 'yyyy-dd-MM')}\n",
+							"value": "SELECT idFactura,idCliente,idEmpleado,fechaFactura,subtotal,impuestos \nROM dbo.Factura \nWHERE EOMONTH(fechaFactura)=@{pipeline().parameters.FechaCorte}\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
@@ -58,7 +58,7 @@
 						"parameters": {
 							"directorio": "/Taller/dbo/Factura/",
 							"nombreArchivo": {
-								"value": "@concat('Factura_',formatDateTime(pipeline().parameters.FechaCorte, 'yyyy-dd-MM'),'.CSV')",
+								"value": "@concat('Factura_',pipeline().parameters.FechaCorte,'.CSV')",
 								"type": "Expression"
 							}
 						}
