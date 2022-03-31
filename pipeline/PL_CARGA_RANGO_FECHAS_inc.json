@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select distinct EOMONTH(fechaFactura) from dbo.Factura where day(fechaFactura)=1 order by 1 asc\n",
+						"sqlReaderQuery": "select distinct EOMONTH(fechaFactura)  FechaFactura from dbo.Factura where day(fechaFactura)=1 order by 1 asc\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -25,7 +25,7 @@
 						"referenceName": "SQL_LEER",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
