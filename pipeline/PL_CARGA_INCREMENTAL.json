@@ -18,7 +18,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "SELECT idFactura,idCliente,idEmpleado,fechaFactura,subtotal,impuestos \nROM dbo.Factura \nWHERE EOMONTH(fechaFactura)='@{pipeline().parameters.FechaCorte}'\n",
+							"value": "SELECT idFactura,idCliente,idEmpleado,fechaFactura,subtotal,impuestos \nFROM dbo.Factura \nWHERE EOMONTH(fechaFactura)='@{pipeline().parameters.FechaCorte}'\n",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
