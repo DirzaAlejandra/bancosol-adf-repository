@@ -60,7 +60,7 @@
 								"waitOnCompletion": true,
 								"parameters": {
 									"FechaCorte": {
-										"value": "@item().value",
+										"value": "@activity('Generar rango fechas').output",
 										"type": "Expression"
 									}
 								}
