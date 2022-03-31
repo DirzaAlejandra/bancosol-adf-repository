@@ -101,7 +101,7 @@
 									"referenceName": "CSV_LEER",
 									"type": "DatasetReference",
 									"parameters": {
-										"directorio": "/Taller/dbo/Factura/",
+										"directorio": "/Taller/dbo/Factura",
 										"nombreArchivo": {
 											"value": "@Factura_item().csv",
 											"type": "Expression"
