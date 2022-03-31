@@ -57,7 +57,13 @@
 									"referenceName": "PL_CARGA_INCREMENTAL",
 									"type": "PipelineReference"
 								},
-								"waitOnCompletion": true
+								"waitOnCompletion": true,
+								"parameters": {
+									"FechaCorte": {
+										"value": "@item().value",
+										"type": "Expression"
+									}
+								}
 							}
 						}
 					]
