@@ -60,7 +60,7 @@
 								"waitOnCompletion": true,
 								"parameters": {
 									"FechaCorte": {
-										"value": "@item().value",
+										"value": "@item().fechaFactura",
 										"type": "Expression"
 									}
 								}
