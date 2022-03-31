@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "SELECT idFactura+1000 as idFactura,IDCLIENTE,IDEMPLEADO,DATEADD(YEAR,1,FECHAFACTURA) as FECHAFACTURA,SUBTOTAL,IMPUESTOS\nFROM DBO.Factura WHERE YEAR(fechaFactura) =2018",
+						"sqlReaderQuery": {
+							"value": "@SELECT idFactura+1000 as idFactura,IDCLIENTE,IDEMPLEADO,DATEADD(YEAR,1,FECHAFACTURA) as FECHAFACTURA,SUBTOTAL,IMPUESTOS\nFROM DBO.Factura WHERE YEAR(fechaFactura) =pipeline().parameters.FechaCorte",
+							"type": "Expression"
+						},
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -53,13 +56,21 @@
 						"referenceName": "CSV_LEER",
 						"type": "DatasetReference",
 						"parameters": {
-							"directorio": "FACTURA/2019",
-							"nombreArchivo": "Factura.csv"
+							"directorio": "/Taller/dbo/Factura/",
+							"nombreArchivo": {
+								"value": "@concat('Factura -',pipeline().parameters.FechaCorte,'.CSV')",
+								"type": "Expression"
+							}
 						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"FechaCorte": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "CLASE03"
 		},
