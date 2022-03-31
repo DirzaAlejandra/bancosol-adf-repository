@@ -114,12 +114,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"fechacorte": {
-				"type": "string",
-				"defaultValue": "20210131"
-			}
-		},
 		"folder": {
 			"name": "LABORATORIO"
 		},
