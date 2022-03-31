@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
-						"sqlReaderQuery": "select distinct fechafactura  from dbo.FacturaDi   where fechaFactura=EOMONTH(fechaFactura) ",
+						"sqlReaderQuery": "select distinct EOMONTH(fechaFactura) from dbo.Factura where day(fechaFactura)=1\n",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
