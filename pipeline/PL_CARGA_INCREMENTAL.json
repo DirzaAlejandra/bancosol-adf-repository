@@ -58,7 +58,7 @@
 						"parameters": {
 							"directorio": "/Taller/dbo/Factura/",
 							"nombreArchivo": {
-								"value": "@concat('Factura -',pipeline().parameters.FechaCorte,'.CSV')",
+								"value": "@concat('Factura_',formatDateTime(pipeline().parameters.FechaCorte, 'yyyy-dd-MM'),'.CSV')",
 								"type": "Expression"
 							}
 						}
