@@ -4,6 +4,30 @@
 	"parameters": {
 		"factoryName": {
 			"value": "adf-bancosol-dsalazar"
+		},
+		"ls_conn_dta_lake_banco_sol_accountKey": {
+			"value": ""
+		},
+		"ls_maquina_local_password": {
+			"value": ""
+		},
+		"ls_sql_database_banco_sol_connectionString": {
+			"value": ""
+		},
+		"ls_sql_local_dirza_connectionString": {
+			"value": ""
+		},
+		"ls_conn_dta_lake_banco_sol_properties_typeProperties_url": {
+			"value": "https://dlsbancosoltraining.dfs.core.windows.net"
+		},
+		"ls_maquina_local_properties_typeProperties_host": {
+			"value": "C:\\Users\\dirzasalazarmonaster\\Documents\\DATAFACTORY"
+		},
+		"ls_maquina_local_properties_typeProperties_userId": {
+			"value": "dirzasalaza6d0a\\dirzasalazarmonaster"
+		},
+		"ls_keyvault_banco_sol_properties_typeProperties_baseUrl": {
+			"value": "https://kv-bancosol-training.vault.azure.net/"
 		}
 	}
 }
