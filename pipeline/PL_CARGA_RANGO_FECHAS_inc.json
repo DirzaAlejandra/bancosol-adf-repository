@@ -67,7 +67,7 @@
 							}
 						},
 						{
-							"name": "PL_CARGA_RANGO_FECHAS_inc",
+							"name": "PL_CARGA_STOCK",
 							"type": "ExecutePipeline",
 							"dependsOn": [],
 							"userProperties": [],
